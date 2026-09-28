@@ -1,74 +1,63 @@
-// Получаем модальное окно по id.
+// ===============================
+// Модальное окно и форма заявки
+// ===============================
+
+// Элементы страницы. Поиск по id и по БЭМ-классу кнопок заказа.
 const orderDialog = document.getElementById('order-dialog');
-
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
-
-// Получаем кнопку закрытия модального окна.
-const closeDialogButton = document.getElementById('close-order-dialog');
-
-// Получаем скрытое поле, в которое будет записан выбранный товар.
-const selectedProductInput = document.getElementById('selected-product');
-
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
-
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
-
-    // Открываем модальное окно.
-    orderDialog.showModal();
-});
-});
-
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-    orderDialog.close();
-});
-
-// Получаем форму заявки.
 const orderForm = document.getElementById('order-form');
-
-// Получаем сообщение об успешной отправке.
+const closeDialogButton = document.getElementById('close-order-dialog');
+const selectedProductInput = document.getElementById('selected-product');
 const successMessage = document.getElementById('success-message');
+const orderButtons = document.querySelectorAll('.product-card__button[data-product]');
 
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-    event.preventDefault();
+// Убираем признаки ошибок со всех полей формы.
+function clearValidationState() {
+  Array.from(orderForm.elements).forEach((element) => {
+    element.removeAttribute('aria-invalid');
+  });
+}
 
-  // Сбрасываем предыдущие признаки ошибок.
-    const formElements = Array.from(orderForm.elements);
-
-    formElements.forEach((element) => {
-    if (element.willValidate) {
-        element.removeAttribute('aria-invalid');
+// Помечаем некорректные поля атрибутом aria-invalid.
+// Внешний вид ошибки задаётся в CSS: .order-form__input[aria-invalid="true"].
+function markInvalidFields() {
+  Array.from(orderForm.elements).forEach((element) => {
+    if (element.willValidate && !element.checkValidity()) {
+      element.setAttribute('aria-invalid', 'true');
     }
-    });
+  });
+}
+
+// Открываем окно и записываем выбранный товар в скрытое поле.
+function openOrderDialog(productName) {
+  selectedProductInput.value = productName;
+  orderDialog.showModal();
+}
+
+// Отправка формы: проверка, сообщение об успехе, закрытие окна.
+function handleOrderSubmit(event) {
+  // backend пока не подключён, поэтому стандартную отправку отменяем.
+  event.preventDefault();
+
+  clearValidationState();
 
   // Проверяем встроенные HTML-ограничения формы.
-    if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-        if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
-        }
-    });
-
-    // Показываем стандартные сообщения браузера.
+  if (!orderForm.checkValidity()) {
+    markInvalidFields();
     orderForm.reportValidity();
     return;
-    }
+  }
 
-  // Показываем сообщение об успешной отправке.
-    successMessage.hidden = false;
+  successMessage.hidden = false;
+  orderForm.reset();
+  orderDialog.close();
+}
 
-  // Очищаем форму.
-    orderForm.reset();
+// Подключаем обработчики, только если окно есть на странице.
+if (orderDialog && orderForm) {
+  orderButtons.forEach((button) => {
+    button.addEventListener('click', () => openOrderDialog(button.dataset.product));
+  });
 
-  // Закрываем модальное окно.
-    orderDialog.close();
-});
+  closeDialogButton.addEventListener('click', () => orderDialog.close());
+  orderForm.addEventListener('submit', handleOrderSubmit);
+}
