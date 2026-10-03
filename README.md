@@ -17,6 +17,7 @@
 - `index.html` — главная страница;
 - `catalog.html` — каталог товаров;
 - `contacts.html` — контактная информация;
+- `lk.html` — личный кабинет;
 - `css/style.css` — файл стилей;
 - `js/main.js` — файл JavaScript;
 - `images/` — папка для изображений;
