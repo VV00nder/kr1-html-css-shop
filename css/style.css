@@ -17,16 +17,16 @@
 
 :root {
   /* Цвета */
-  --color-bg: #ffffff;
+  --color-bg: #2575d080;
   --color-text: #222222;
-  --color-muted: #666666;
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
-  --color-border: #dddddd;
-  --color-surface: #f7f7f7;
+  --color-muted: #000000;
+  --color-primary: #2564d0;
+  --color-primary-dark: #d02542;
+  --color-border: #00253c;
+  --color-surface: #f8f8f8;
   --color-surface-accent: #eef5ff;
   --color-danger: #b00020;
-  --color-success: #168a2f;
+  --color-success: #258ed0;
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
   --color-overlay: rgba(0, 0, 0, 0.5);
@@ -95,6 +95,10 @@ a:focus-visible {
 /* --- site-header: шапка сайта --- */
 
 .site-header {
+  background-image: url("../images/3d-abstract-space-sky-with-stars-nebula.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: var(--space-lg);
   background-color: var(--color-surface);
 }
@@ -106,7 +110,7 @@ a:focus-visible {
 
 .site-header__logo {
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--color-white);
   text-decoration: none;
 }
 
@@ -296,12 +300,16 @@ a:focus-visible {
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 98%;
   gap: var(--space-lg);
+  align-items: stretch;
+
 }
 
 /* --- product-card: карточка товара --- */
 
 .product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -310,6 +318,7 @@ a:focus-visible {
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
 }
+
 
 .product-card:hover,
 .product-card--featured {
@@ -341,8 +350,133 @@ a:focus-visible {
 }
 
 .product-card__button {
-  margin-top: auto;
+  margin-top: var(--space-sm);
   align-self: flex-start;
+}
+
+.product-card__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-sm);
+}
+
+/* --- product-card__badge: метка на карточке --- */
+
+.product-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: auto;
+  right: 10px;
+  z-index: 1;
+
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+/* Модификатор: ХИТ — красный */
+.product-card__badge--hit {
+  background-color: #ff0000c9;
+}
+
+/* Модификатор: СКИДКА */
+.product-card__badge--discount {
+  background-color: #5eff00c9;
+}
+
+/* Модификатор: НОВИНКА — зелёный/синий */
+.product-card__badge--new {
+  background-color: var(--color-success);
+}
+
+
+/* ==========================================================================
+   5.1. Компоненты: profile, profile-card, last-order (для lk.html)
+   ========================================================================== */
+
+/* --- profile: блок профиля --- */
+
+.profile {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+}
+
+.profile__title {
+  margin-top: 0;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.profile-card__avatar {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  font-size: 48px;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.profile-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-card__info {
+  margin: 0;
+  display: grid;
+  gap: var(--space-sm);
+  flex: 1 1 auto;
+}
+
+.profile-card__row {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.profile-card__label {
+  margin: 0;
+  font-weight: 700;
+  min-width: 90px;
+}
+
+.profile-card__value {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* --- last-order: последний заказ --- */
+
+.last-order {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+}
+
+.last-order__title {
+  margin-top: 0;
 }
 
 
@@ -359,6 +493,7 @@ a:focus-visible {
   gap: var(--space-lg);
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
+  align-items: start;
 }
 
 .catalog-layout__filters {

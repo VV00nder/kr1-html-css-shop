@@ -17,7 +17,7 @@
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">Kosmo-Bochki</a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
@@ -32,6 +32,11 @@
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class = "site-nav__link" href="lk.html">
+              Личный кабинет
+            </a>
           </li>
         </ul>
       </nav>
@@ -95,34 +100,77 @@
         <h2 class="catalog-layout__title">Список товаров</h2>
 
         <div class="products-grid">
-        <article class="product-card">
-          <h3 class="product-card__title">Товар 1</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 1000 руб.</p>
-          <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+        <article class="product-card product-card--featured">
+          <span class="product-card__badge product-card__badge--hit">ХИТ</span>
+
+          <h3 class="product-card__title">Space-Y</h3>
+          <img src=".\images\Space-Y.jpg" alt="Лучший среди худших" class="product-card__image">
+          <p class="product-card__description">Лучший среди худших - худший среди лучших</p>
+          <p class="product-card__price">Цена: 1 957 294,34 руб.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
         </article>
 
-        <article class="product-card">
-          <h3 class="product-card__title">Товар 2</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 1500 руб.</p>
-          <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+        <article class="product-card product-card--featured">
+          <span class="product-card__badge product-card__badge--discount">СКИДКА</span>
+          <h3 class="product-card__title">Бочка Яги</h3>
+          <img src=".\images\bochka.jpg" alt="Бочка" class = "product-card__image">
+          <p class="product-card__description">Летательный аппарат суборбитальных полетов для истинных ценителей.</p>
+          <p class="product-card__price">Цена: 1 234 284 мухомор.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 2">
+            Заказать
+          </button>
         </article>
 
-        <article class="product-card">
-          <h3 class="product-card__title">Товар 3</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 2000 руб.</p>
-          <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+        <article class="product-card product-card--featured">
+          <h3 class="product-card__title">Инопланетное яйцо</h3>
+          <img src="./images/Luntik.jpg" alt="Яйцо" class="product-card__image">
+          <p class="product-card__description">Летательный аппарат первой внеземной жизни</p>
+          <p class="product-card__price">Цена: 1485 кг лун. грунта.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 3">
+            Заказать
+          </button>
         </article>
-        </div>
+      </div>
+      <div class="products-grid">
+        <article class="product-card product-card--featured">
+          <h3 class="product-card__title">Носовик</h3>
+          <img src="./images/noise.jpg" alt="Нос" class="product-card__image">
+          <p class="product-card__description">Как чихнет, так грянет.</p>
+          <p class="product-card__price">Цена: 1 323 434 соп.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 4">
+            Заказать
+          </button>
+        </article>
+
+        <article class="product-card product-card--featured">
+          <h3 class="product-card__title">Крылья</h3>
+          <img src=".\images\fly.jpg" alt="Крылья" class = "product-card__image">
+          <p class="product-card__description">Для тех, кто хочет приблизиться к звездам лично.</p>
+          <p class="product-card__price">Цена: 134 нерв. кл.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 5">
+            Заказать
+          </button>
+        </article>
+
+        <article class="product-card product-card--featured">
+          <h3 class="product-card__title">Пухляш</h3>
+          <img src="./images/Airlander.jpg" alt="Пухляш" class="product-card__image">
+          <p class="product-card__description">Мягкий и очень небезопасный аэростат.</p>
+          <p class="product-card__price">Цена: 168 л. метана</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 6">
+            Заказать
+          </button>
+        </article>
+      </div>
       </section>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p class="site-footer__text">&copy; 2026 Kosmo-Bochki. Все права защищены.</p>
       <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
     </div>
   </footer>

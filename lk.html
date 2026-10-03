@@ -3,14 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Космос">
+  <meta name="description" content="Личный кабинет — Космо-бочки">
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Космос">
-  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://VV00nder.github.io/kr1-html-css-shop/images/preview.jpg">
-
-  <title>Космо-бочки</title>
+  <title>Личный кабинет — Космо-бочки</title>
 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
@@ -23,7 +18,7 @@
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a>
+            <a class="site-nav__link" href="index.html">Главная</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="catalog.html">Каталог</a>
@@ -35,7 +30,7 @@
             <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
           </li>
           <li class="site-nav__item">
-            <a class = "site-nav__link" href="lk.html">
+            <a class="site-nav__link site-nav__link--active" href="lk.html" aria-current="page">
               Личный кабинет
             </a>
           </li>
@@ -45,70 +40,65 @@
   </header>
 
   <main class="page">
-    <section class="hero">
-      <h1 class="hero__title">Хотите в космос?
-      </h1>
-      <p class="hero__text">
-        Лучшие бочки для полета только у нас! Успейте исполнить свою мечту.
-      </p>
-      <a class="button button--primary" href="#popular">Перейти к товарам</a>
+    <!-- Профиль -->
+    <section class="profile">
+      <h1 class="profile__title">Личный кабинет</h1>
+
+      <article class="profile-card">
+        <div class="profile-card__avatar" aria-hidden="true">👾</div>
+
+        <dl class="profile-card__info">
+          <div class="profile-card__row">
+            <dt class="profile-card__label">Имя:</dt>
+            <dd class="profile-card__value">Иван Космонавтов</dd>
+          </div>
+          <div class="profile-card__row">
+            <dt class="profile-card__label">Email:</dt>
+            <dd class="profile-card__value">ivan@kosmos.ru</dd>
+          </div>
+          <div class="profile-card__row">
+            <dt class="profile-card__label">Телефон:</dt>
+            <dd class="profile-card__value">+7 (999) 123-45-67</dd>
+          </div>
+          <div class="profile-card__row">
+            <dt class="profile-card__label">Адрес:</dt>
+            <dd class="profile-card__value">г. Байконур, ул. Гагарина, 1</dd>
+          </div>
+        </dl>
+      </article>
     </section>
 
-    <section class="section" id="advantages">
-      <h2 class="section__title">Почему именно мы?</h2>
-
-      <ul class="info-list">
-        <li class="info-list__item">понятное устройство ракет;</li>
-        <li class="info-list__item">детские модели только у нас;</li>
-        <li class="info-list__item">подключение внешних ускорителей;</li>
-        <li class="info-list__item">полная подготовка к полету за счет компании.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="popular">
-      <h2 class="section__title">Популярные товары</h2>
+    <!-- Последний заказ -->
+    <section class="last-order">
+      <h2 class="last-order__title">Последниe заказы</h2>
 
       <div class="products-grid">
-        <article class="product-card product-card--featured">
+        <article class="product-card">
+          <img class="product-card__image" src="images/space-y.jpg" alt="Space-Y">
           <h3 class="product-card__title">Space-Y</h3>
-          <img src="C:\Users\user\Desktop\University\Front-Back\kr1-html-css-shop\images\Space-Y.jpg" alt="Лучший среди худших" class="product-card__image">
-          <p class="product-card__description">Лучший среди худших - худший среди лучших</p>
-          <p class="product-card__price">Цена: 1 957 294,34 руб.</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <p class="product-card__description">Лучший среди худших — худший среди лучших</p>
+          <p class="product-card__price">Цена: 1 557 234,34 руб.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 1">Заказать еще раз</button>
         </article>
 
-        <article class="product-card product-card--featured">
+        <article class="product-card">
+          <img class="product-card__image" src="images/bochka.jpg" alt="Бочка Яги">
           <h3 class="product-card__title">Бочка Яги</h3>
-          <img src=".\images\bochka.jpg" alt="Бочка" class = "product-card__image">
-          <p class="product-card__description">Летательный аппарат суборбитальных полетов для истинных ценителей.</p>
-          <p class="product-card__price">Цена: 1 234 284 мухомор.</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 2">
-            Заказать
-          </button>
+          <p class="product-card__description">Летательный аппарат субарбатильных полётов для истинных ценителей.</p>
+          <p class="product-card__price">Цена: 1 234 234 мухомор.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 2">Заказать еще раз</button>
         </article>
 
-        <article class="product-card product-card--featured">
+        <article class="product-card">
+          <img class="product-card__image" src="images/Luntik.jpg" alt="Инопланетное яйцо">
           <h3 class="product-card__title">Инопланетное яйцо</h3>
-          <img src="./images/Luntik.jpg" alt="Яйцо" class="product-card__image">
           <p class="product-card__description">Летательный аппарат первой внеземной жизни</p>
-          <p class="product-card__price">Цена: 1485 кг лун. грунта.</p>
-          <button class="button button--primary product-card__button" type="button" data-product="Товар 3">
-            Заказать
-          </button>
+          <p class="product-card__price">Цена: 1485 кг луц. грунта.</p>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 3">Заказать еще раз</button>
         </article>
       </div>
     </section>
-
-    <aside class="info-note">
-      <h2 class="info-note__title">Информация для инженеров</h2>
-      <p class="info-note__text">
-        Будьте внимательные при запуске ракеты. Подготовьте  несколько литров Кока-колы и ментоса для стабильного полета.
-      </p>
-    </aside>
   </main>
-
   <footer class="site-footer" id="contacts">
     <div class="site-footer__inner">
       <p class="site-footer__text">&copy; 2026 Kosmo-Bochki. Все права защищены.</p>
